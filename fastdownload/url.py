@@ -4,14 +4,15 @@ __all__ = ['URLs', 'FastDownload']
 
 # Cell
 import json
+import warnings
 from nbdev.showdoc import *
 from fastprogress.fastprogress import progress_bar
 from fastcore.all import *
 from .helper import *
-from .helper import _get_URL
+from .helper import _get_URLs, _check_present, _add_check, _get_check, _check_file
 
 # Cell
-URLs = _get_URL()
+URLs = _get_URLs()
 
 # Cell
 class FastDownload:
@@ -21,12 +22,15 @@ class FastDownload:
         archive_path = config['archive']
         store_attr('data_path, archive_path')
 
-    def download(self, url, dest=None):
-        url   = url[0] #FIXME
+    def download(self, url_meta, dest=None):
+        url = url_meta[0]
         fname = Path(url.split('/')[-1])
         fpath = self.archive_path/fname
         dest  = self.data_path/fname.with_suffix('')
         if not dest.exists():
             fpath = download_data(src=url, dest=fpath)
+            if not _check_present(url_meta): _add_check(fpath, url)
+            if _get_check(url) and _check_file(fpath) != _get_check(url):
+                warnings.warn(f"File downloaded seems broken. Remove {fname} and try again.")
             file_extract(fpath, dest.parent)
         return dest

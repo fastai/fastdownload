@@ -90,7 +90,6 @@ def download_url(url, dest, overwrite=False, pbar=None, show_progress=True, chun
                 f'$ tar xf {fname}\n'
                 f' And re-run your code once the download is successful\n')
 
-
 # Cell
 def download_data(src, dest, force_download=False):
     "Download `url` to `fname`."
@@ -99,7 +98,41 @@ def download_data(src, dest, force_download=False):
     return dest
 
 # Cell
-def _get_URL():
+def _check_present(url_meta):
+    # TODO: Is there a better way?
+    return len(url_meta)==3
+
+# Cell
+def _get_dset_name(url):
+    checks = json.load(open(Path(__file__).parent/'checks.txt', 'r'))
+    for key, val in checks.items():
+        if val[0]==url: return key
+    else: raise ValueError(f"No dataset exists at {Path(__file__).parent/'checks.txt'} for url - {url}")
+
+# Cell
+def _add_check(fpath, url):
+    "Internal function to update the internal check file with `url` and check on `fname`."
+    checks = json.load(open(Path(__file__).parent/'checks.txt', 'r'))
+    dset_name = _get_dset_name(url)
+    checks[dset_name] = [url] + _check_file(fpath)
+    json.dump(checks, open(Path(__file__).parent/'checks.txt', 'w'), indent=2)
+
+# Cell
+def _check_file(fpath):
+    "internal function to get the hash of the local file at `fname`."
+    size = os.path.getsize(fpath)
+    with open(fpath, "rb") as f: hash_nb = hashlib.md5(f.read(2**20)).hexdigest()
+    return [size,hash_nb]
+
+# Cell
+def _get_check(url):
+    "internal function to get the hash of the file at `url`."
+    checks = json.load(open(Path(__file__).parent/'checks.txt', 'r'))
+    dset_name = _get_dset_name(url)
+    return checks.get(dset_name)[1:]
+
+# Cell
+def _get_URLs():
     "internal function to get the URLs from `checks.txt`"
     URLs = json.load(open(Path(__file__).parent/'checks.txt', 'r'))
     return dict2obj(URLs)
