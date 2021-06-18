@@ -16,10 +16,10 @@ URLs = _get_URLs()
 
 # Cell
 class FastDownload:
-    def __init__(self, cfg=None, dir='~/.fastai', archive=None, dest=None, overwrite=False):
+    def __init__(self, cfg=None, dir='~/.fastai', archive_path=None, data_path=None, overwrite=False):
         config = Config() if cfg is None else cfg
-        data_path = config['data']
-        archive_path = config['archive']
+        data_path = data_path or config['data']
+        archive_path = archive_path or config['archive']
         store_attr('data_path, archive_path')
 
     def download(self, url_meta, dest=None):

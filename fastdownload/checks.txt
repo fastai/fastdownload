@@ -1,6 +1,8 @@
 {
   "ADULT_SAMPLE": [
-    "http://files.fast.ai/data/examples/adult_sample.tgz"
+    "http://files.fast.ai/data/examples/adult_sample.tgz",
+    968212,
+    "64eb9d7e23732de0b138f7372d15492f"
   ],
   "AG_NEWS": [
     "https://s3.amazonaws.com/fast-ai-nlp/ag_news_csv.tgz"
