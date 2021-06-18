@@ -1,0 +1,14 @@
+{
+  "ADULT_SAMPLE": [
+    "http://files.fast.ai/data/examples/adult_sample.tgz"
+  ],
+  "AG_NEWS": [
+    "https://s3.amazonaws.com/fast-ai-nlp/ag_news_csv.tgz"
+  ],
+  "AMAZON_REVIEWS_POLARITY": [
+    "https://s3.amazonaws.com/fast-ai-nlp/amazon_review_polarity_csv.tgz"
+  ],
+  "IMAGENETTE_320": [
+    "https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-320.tgz"
+  ]
+}
