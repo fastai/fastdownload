@@ -29,7 +29,7 @@ class FastDownload:
         dest  = self.data_path/fname.with_suffix('')
         if not dest.exists():
             fpath = download_data(src=url, dest=fpath)
-            if not _check_present(url_meta): _add_check(fpath, url)
+            if not _check_present(url_meta, fpath): _add_check(fpath, url)
             if _get_check(url) and _check_file(fpath) != _get_check(url):
                 warnings.warn(f"File downloaded seems broken. Remove {fname} and try again.")
             file_extract(fpath, dest.parent)
