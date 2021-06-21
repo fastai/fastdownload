@@ -3,10 +3,8 @@
 __all__ = ['Config', 'download_url', 'download_data', 'file_extract']
 
 # Cell
-import yaml
-import requests
-import json
-import hashlib
+import yaml, json
+import requests, hashlib
 import tarfile, zipfile
 from nbdev.showdoc import *
 from fastcore.all import *
@@ -98,11 +96,6 @@ def download_data(src, dest, force_download=False):
     return dest
 
 # Cell
-def _check_present(url_meta):
-    # TODO: Is there a better way?
-    return len(url_meta)==3
-
-# Cell
 def _get_dset_name(url):
     checks = json.load(open(Path(__file__).parent/'checks.txt', 'r'))
     for key, val in checks.items():
@@ -136,6 +129,10 @@ def _get_URLs():
     "internal function to get the URLs from `checks.txt`"
     URLs = json.load(open(Path(__file__).parent/'checks.txt', 'r'))
     return dict2obj(URLs)
+
+# Cell
+def _check_present(url_meta, fpath):
+    return [url_meta[0]] + _check_file(fpath) == url_meta
 
 # Cell
 def file_extract(fname, dest=None):
