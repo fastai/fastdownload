@@ -97,6 +97,7 @@ def download_data(src, dest, force_download=False):
 
 # Cell
 def _get_dset_name(url):
+    "internal function to get name of Dataset from `checks.txt` based on `url`"
     checks = json.load(open(Path(__file__).parent/'checks.txt', 'r'))
     for key, val in checks.items():
         if val[0]==url: return key
@@ -126,13 +127,14 @@ def _get_check(url):
 
 # Cell
 def _get_URLs():
-    "internal function to get the URLs from `checks.txt`"
+    "internal function to get the `URLs` as a class object from `checks.txt`"
     URLs = json.load(open(Path(__file__).parent/'checks.txt', 'r'))
     return dict2obj(URLs)
 
 # Cell
-def _check_present(url_meta, fpath):
-    return [url_meta[0]] + _check_file(fpath) == url_meta
+def _check_present(url_, fpath):
+    "internal function to check if file size and hash are present in `checks.txt` for `url_`"
+    return [url_[0]] + _check_file(fpath) == url_
 
 # Cell
 def file_extract(fname, dest=None):

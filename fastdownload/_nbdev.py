@@ -6,11 +6,11 @@ index = {"Config": "00_helpers.ipynb",
          "download_url": "00_helpers.ipynb",
          "download_data": "00_helpers.ipynb",
          "file_extract": "00_helpers.ipynb",
-         "URLs": "01_url.ipynb",
-         "FastDownload": "01_url.ipynb"}
+         "URLs": "01_external.ipynb",
+         "FastDownload": "01_external.ipynb"}
 
 modules = ["helper.py",
-           "url.py"]
+           "external.py"]
 
 doc_url = "https://fastai.github.io/fastdownload/"
 

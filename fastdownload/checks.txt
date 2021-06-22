@@ -8,9 +8,13 @@
     "https://s3.amazonaws.com/fast-ai-nlp/ag_news_csv.tgz"
   ],
   "AMAZON_REVIEWS_POLARITY": [
-    "https://s3.amazonaws.com/fast-ai-nlp/amazon_review_polarity_csv.tgz"
+    "https://s3.amazonaws.com/fast-ai-nlp/amazon_review_polarity_csv.tgz",
+    688339454,
+    "676f7e5208ec343c8274b4bb085bc938"
   ],
   "IMAGENETTE_320": [
-    "https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-320.tgz"
+    "https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-320.tgz",
+    341663724,
+    "1f1f74f133caff120e575856659b87a2"
   ]
 }
