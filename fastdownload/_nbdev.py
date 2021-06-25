@@ -5,6 +5,8 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 index = {"Config": "00_helpers.ipynb",
          "download_url": "00_helpers.ipynb",
          "download_data": "00_helpers.ipynb",
+         "URL_DSET_MAP": "00_helpers.ipynb",
+         "add_check": "00_helpers.ipynb",
          "file_extract": "00_helpers.ipynb",
          "URLs": "01_external.ipynb",
          "FastDownload": "01_external.ipynb"}

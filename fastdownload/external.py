@@ -9,7 +9,7 @@ from nbdev.showdoc import *
 from fastprogress.fastprogress import progress_bar
 from fastcore.all import *
 from .helper import *
-from .helper import _get_URLs, _check_present, _add_check, _get_check, _check_file
+from .helper import _get_URLs, _check_present, _check_url, _check_file
 
 # Cell
 URLs = _get_URLs()
@@ -22,17 +22,22 @@ class FastDownload:
         archive_path = archive_path or config['archive']
         store_attr('data_path, archive_path')
 
-    def download(self, url_, dest=None):
-        if isinstance(url_, str): url=url_; run_checks=False
-        else: url = url_[0]; run_checks=True
+    def download(self, url_, dest=None, force_download=False):
+        url, run_checks = (url_, False) if isinstance(url_, str) else (url_[0], True)
         fname = Path(url.split('/')[-1])
         fpath = self.archive_path/fname
         dest  = self.data_path/fname.with_suffix('')
+        if fpath.exists() and _check_url(url) and _check_file(fpath) != _check_url(url):
+            print("A new version of this dataset is available, downloading...")
+            force_download = True
+        if force_download:
+            if fpath.exists(): os.remove(fpath)
+            if dest.exists(): shutil.rmtree(dest)
         if not dest.exists():
             fpath = download_data(src=url, dest=fpath)
             if run_checks:
-                if not _check_present(url_, fpath): _add_check(fpath, url)
-                if _get_check(url) and _check_file(fpath) != _get_check(url):
+                if not _check_present(url_): add_check(fpath, url)
+                if _check_url(url) and _check_file(fpath) != _check_url(url):
                     warnings.warn(f"File downloaded seems broken. Remove {fname} and try again.")
             file_extract(fpath, dest.parent)
         return dest
