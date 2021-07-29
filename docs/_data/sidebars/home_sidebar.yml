@@ -10,11 +10,8 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Helpers
-      url: helpers.html
-    - output: web,pdf
-      title: External
-      url: external.html
+      title: Core API
+      url: core.html
     output: web
     title: fastdownload
   output: web

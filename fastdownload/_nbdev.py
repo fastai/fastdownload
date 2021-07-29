@@ -2,19 +2,18 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"Config": "00_helpers.ipynb",
-         "download_url": "00_helpers.ipynb",
-         "download_data": "00_helpers.ipynb",
-         "URL_DSET_MAP": "00_helpers.ipynb",
-         "add_check": "00_helpers.ipynb",
-         "file_extract": "00_helpers.ipynb",
-         "URLs": "01_external.ipynb",
-         "FastDownload": "01_external.ipynb"}
+index = {"download_url": "00_core.ipynb",
+         "path_stats": "00_core.ipynb",
+         "checks_module": "00_core.ipynb",
+         "read_checks": "00_core.ipynb",
+         "check": "00_core.ipynb",
+         "update_checks": "00_core.ipynb",
+         "download_and_check": "00_core.ipynb",
+         "FastDownload": "00_core.ipynb"}
 
-modules = ["helper.py",
-           "external.py"]
+modules = ["core.py"]
 
-doc_url = "https://fastai.github.io/fastdownload/"
+doc_url = "https://fastdownload.fast.ai/"
 
 git_url = "https://github.com/fastai/fastdownload/tree/master/"
 

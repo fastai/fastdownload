@@ -1,15 +1,14 @@
 .ONESHELL:
 SHELL := /bin/bash
+SHELLFLAGS := -e
+
 SRC = $(wildcard nbs/*.ipynb)
 
-all: fastdownload docs
+all: fastcore docs
 
-fastdownload: $(SRC)
+fastcore: $(SRC)
 	nbdev_build_lib
-	touch fastdownload
-
-sync:
-	nbdev_update_lib
+	touch fastcore
 
 docs_serve: docs
 	cd docs && bundle exec jekyll serve
@@ -21,11 +20,13 @@ docs: $(SRC)
 test:
 	nbdev_test_nbs
 
-release: pypi conda_release
+release: pypi
+	sleep 5
+	fastrelease_conda_package --upload_user fastai --build_args '-c pytorch -c fastai'
 	nbdev_bump_version
 
 conda_release:
-	fastrelease_conda_package
+	fastrelease_conda_package --upload_user fastai --build_args '-c pytorch -c fastai'
 
 pypi: dist
 	twine upload --repository pypi dist/*
@@ -35,3 +36,4 @@ dist: clean
 
 clean:
 	rm -rf dist
+

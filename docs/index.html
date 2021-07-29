@@ -1,13 +1,13 @@
 ---
 
-title: FastDownload
+title: fastdownload
 
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "Downloads dataset from `url`. "
-description: "Downloads dataset from `url`. "
+summary: "Easily download, verify, and extract archives"
+description: "Easily download, verify, and extract archives"
 nb_path: "index.ipynb"
 ---
 <!--
@@ -31,7 +31,7 @@ nb_path: "index.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A general purpose data download library.</p>
+<p>If you have datasets or other archives that you want to make available to your users, and ensure they always have the latest versions and that they are downloaded correctly, <code>fastdownload</code> can help.</p>
 
 </div>
 </div>
@@ -44,145 +44,96 @@ nb_path: "index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>pip install fastdownload</code></p>
+<p>Using pip:</p>
+
+<pre><code>pip install fastdownload
+
+</code></pre>
+<p>...or using conda:</p>
+
+<pre><code>conda install -c fastchan fastdownload</code></pre>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use"> </a></h2>
+<h2 id="What's-this-about?">What's this about?<a class="anchor-link" href="#What's-this-about?"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="/fastdownload/external.html#FastDownload"><code>FastDownload</code></a> allows you to pass in paths for <code>archive_path</code> and <code>data_path</code>. Unless specified:</p>
-<ul>
-<li><code>archive_path</code> defaults to <code>~/.fastai/archive</code></li>
-<li><code>data_path</code> defaults to <code>~/.fastai/data</code></li>
-</ul>
-<p><a href="/fastdownload/external.html#FastDownload"><code>FastDownload</code></a> will download the file from <code>url</code> to <code>archive_path</code> and then un-compress it to <code>data_path</code>.</p>
+<p>The situation where you might want to use <code>fastdownload</code> is where you have one or more URLs pointing at some archives you want to make available, and you want to ensure that your users download those archives correctly, have the latest version, and that it's as easy as possible for them to access the information in those archives.</p>
+<p>Your user just calls a single method, <a href="/core.html#FastDownload.get"><code>FastDownload.get</code></a>, passing the URL required, and the URL will be downloaded and extracted to the directories you choose. The path to the extracted file is returned. If that URL has already been downloaded, then the cached archive or contents will be used automatically. However, if that size or hash of the archive is different to what it should be, then the user will be informed, and a new version will be downloaded.</p>
+<p>In the future, you may want to update one or more of your archives. When you do so, <code>fastdownload</code> will ensure your users have the latest version, by checking their downloaded archives against your updated file size and hash information.</p>
+<p>For instance, <code>fastai</code> uses <code>fastdownload</code> to provide access to datasets for deep learning. <code>fastai</code> users can download and extract them with a single command, using the return value to access the files. The files are automatically placed in appropriate subdirectories of a <code>.fastai</code> folder in the user's homedir. If a dataset is updated, users are informed the next time they use the dataset, and the latest version is automatically downloaded and extracted for them.</p>
 
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">FastDownload</span><span class="p">(</span><span class="n">archive_path</span><span class="o">=</span><span class="s1">&#39;./archive&#39;</span><span class="p">,</span> <span class="n">data_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">ADULT_SAMPLE</span><span class="p">)</span>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Usage:-downloading-files">Usage: downloading files<a class="anchor-link" href="#Usage:-downloading-files"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When your users download an archive, <code>fastdownload</code> will automatically save it to a directory, check if the size and hash matches, and extract the contents. Minimal usage for downloading and extracting is:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastdownload</span> <span class="kn">import</span> <span class="n">FastDownload</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">FastDownload</span><span class="p">()</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://...&#39;</span><span class="p">)</span>
+</pre></div>
+<p>After this, <code>path</code> will contain the path where the extracted files are located. By default, archives are saved to <code>{base}/archive</code>, and extracted to <code>{base}/data</code>. <code>{base}</code> defaults to <code>~/.fastdownload</code>. If there is more than one file or folder in the root of the downloaded archive, then a new folder is created in <code>data</code> for the contents.</p>
+<p>Instead of <code>get</code>, use <code>download</code> to download the URL without extracting it, or <code>extract</code> to extract the URL without downloading it (assuming it's already been downloaded to the <code>archive</code> directory). All of these methods accept a <code>force</code> parameter which will download/extract the archive even if it's already present.</p>
+<p>You can change any or all of the <code>base</code>, <code>archive</code>, and <code>data</code> paths by passing them to <a href="/core.html#FastDownload"><code>FastDownload</code></a>:</p>
+<div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">FastDownload</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="s1">&#39;~/.mypath&#39;</span><span class="p">,</span> <span class="n">archive</span><span class="o">=</span><span class="s1">&#39;downloaded&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s1">&#39;extracted&#39;</span><span class="p">)</span>
+</pre></div>
+<p>You can remove the cached archive file and/or the extracted contents with <code>rm</code>:</p>
+<div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">rm</span><span class="p">(</span><span class="s1">&#39;https://...&#39;</span><span class="p">)</span>
 </pre></div>
 
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Path(&#39;data/adult_sample&#39;)</pre>
 </div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Below example shows where data get's downloaded when using default paths.</p>
-
+<h2 id="Usage:-making-archives-available-to-download">Usage: making archives available to download<a class="anchor-link" href="#Usage:-making-archives-available-to-download"> </a></h2>
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">FastDownload</span><span class="p">()</span>
-<span class="n">d</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">ADULT_SAMPLE</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Path(&#39;/home/arora/.fastai/data/adult_sample&#39;)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We could also just pass in the URL. This will download <code>mnist_tiny.tgz</code> at <code>archive_path</code> and untar it at <code>data_path</code>.</p>
-
-</div>
-</div>
-</div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">FastDownload</span><span class="p">()</span>
-<span class="n">d</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://s3.amazonaws.com/fast-ai-sample/mnist_tiny.tgz&#39;</span><span class="p">)</span>
+<p><code>fastdownload</code> will add a file <code>download_checks.py</code> to your Python module which contains file sizes and hashes for your archives. The file is located in the same directory as a module you choose, e.g.:</p>
+<div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">FastDownload</span><span class="p">(</span><span class="n">module</span><span class="o">=</span><span class="n">fastai</span><span class="o">.</span><span class="n">some_module</span><span class="p">)</span>
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Path(&#39;/home/arora/.fastai/data/mnist_tiny&#39;)</pre>
-</div>
-
-</div>
+<p>Then use <code>update</code> to create or update the size and hash for a URL:</p>
+<div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s1">&#39;https://...&#39;</span><span class="p">)</span>
+</pre></div>
+<p>You will now find there is a file called <code>download_checks.py</code> in the same directory where <code>fastai.some_module</code> is located, which contains a Python dict with the URL, size, and hash for this file. If you've downloaded this file before to your <code>archive</code> path then it will be used, instead of downloading a new copy. Use <code>get(force=True)</code> first to download a new copy if even you have it in your archive.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Config-file">Config file<a class="anchor-link" href="#Config-file"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If there is a file called <code>config.ini</code> in your <code>base</code> directory, then keys <code>archive</code> and <code>data</code> will be used as the default values for <a href="/core.html#FastDownload"><code>FastDownload</code></a>. The file should be in <a href="https://docs.python.org/3/library/configparser.html">configparser</a> format. Here's a sample <code>config.ini</code>:</p>
+
+<pre><code>[DEFAULT]         
+archive = downloaded
+data = extracted</code></pre>
+<p>If there is no ini file present, one will be automatically created for for you using the details you pass to <a href="/core.html#FastDownload"><code>FastDownload</code></a>.</p>
 
 </div>
-    {% endraw %}
-
+</div>
+</div>
 </div>
  
 
