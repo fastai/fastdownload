@@ -77,8 +77,6 @@ class FastDownload:
         self.module = checks_module(module)
         self.data_path = Path(data    or self.cfg.data)
         self.arch_path = Path(archive or self.cfg.archive)
-        self.data_path.mkdir(exist_ok=True, parents=True)
-        self.arch_path.mkdir(exist_ok=True, parents=True)
 
     def check(self, url, fpath):
         "Check whether size and hash of `fpath` matches stored data for `url` or data is missing"
@@ -87,6 +85,7 @@ class FastDownload:
 
     def download(self, url, force=False):
         "Download `url` to archive path, unless exists and `self.check` fails and not `force`"
+        self.arch_path.mkdir(exist_ok=True, parents=True)
         res,force = download_and_check(url, urldest(url, self.arch_path), self.module, force)
         if force: self.rm()
         return res
@@ -102,13 +101,15 @@ class FastDownload:
         "Store the hash and size in `download_checks.py`"
         update_checks(urldest(url, self.arch_path), url, self.module)
 
-    def extract(self, url, force=False):
+    def extract(self, url, extract_key=None, force=False):
         "Extract archive already downloaded from `url`, overwriting existing if `force`"
         arch = urldest(url, self.arch_path)
         if not fpath.exists(): raise Exception(f'{fpath} does not exist')
-        return untar_dir(arch, self.data_path, rename=True, overwrite=force)
+        dest = self.cfg.config_path/self.cfg[extract_key] if extract_key else self.data_path
+        dest.mkdir(exist_ok=True, parents=True)
+        return untar_dir(arch, dest, rename=True, overwrite=force)
 
-    def get(self, url, force=False):
+    def get(self, url, extract_key='data', force=False):
         "Download and extract `url`, overwriting existing if `force`"
         self.download(url, force=force)
-        return self.extract(url, force=force)
+        return self.extract(url, extract_key=extract_key, force=force)
