@@ -104,7 +104,7 @@ class FastDownload:
     def extract(self, url, extract_key=None, force=False):
         "Extract archive already downloaded from `url`, overwriting existing if `force`"
         arch = urldest(url, self.arch_path)
-        if not fpath.exists(): raise Exception(f'{fpath} does not exist')
+        if not arch.exists(): raise Exception(f'{arch} does not exist')
         dest = self.cfg.config_path/self.cfg[extract_key] if extract_key else self.data_path
         dest.mkdir(exist_ok=True, parents=True)
         return untar_dir(arch, dest, rename=True, overwrite=force)
