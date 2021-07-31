@@ -60,23 +60,29 @@ def update_checks(fpath, url, fmod):
 def download_and_check(url, fpath, fmod, force):
     "Download `url` to `fpath`, unless exists and `check` fails and not `force`"
     if not force and fpath.exists():
-        if check(fmod, url, fpath): return fpath,force
-        else:
-            print("Downloading a new version of this dataset...")
-            force=True
+        if check(fmod, url, fpath): return fpath
+        else: print("Downloading a new version of this dataset...")
     res = download_url(url, fpath)
     if not check(fmod, url, fpath): raise Exception("Downloaded file is corrupt or not latest version")
-    return res,force
+    return res
 
 # Cell
 class FastDownload:
     def __init__(self, cfg=None, base='~/.fastdownload', archive=None, data=None, module=None):
         base = Path(base).expanduser().absolute()
-        default = {'data':base/(data or 'data'), 'archive':base/(archive or 'archive')}
+        default = {'data':(data or 'data'), 'archive':(archive or 'archive')}
         self.cfg = Config(base, 'config.ini', create=default) if cfg is None else cfg
         self.module = checks_module(module)
-        self.data_path = Path(data    or self.cfg.data)
-        self.arch_path = Path(archive or self.cfg.archive)
+        if data is not None: self.cfg['data'] = data
+        if archive is not None: self.cfg['archive'] = archive
+
+    def arch_path(self):
+        "Path to archives"
+        return self.cfg.path('archive')
+
+    def data_path(self, extract_key='data'):
+        "Path to extracted data"
+        return self.cfg.path(extract_key)
 
     def check(self, url, fpath):
         "Check whether size and hash of `fpath` matches stored data for `url` or data is missing"
@@ -85,27 +91,26 @@ class FastDownload:
 
     def download(self, url, force=False):
         "Download `url` to archive path, unless exists and `self.check` fails and not `force`"
-        self.arch_path.mkdir(exist_ok=True, parents=True)
-        res,force = download_and_check(url, urldest(url, self.arch_path), self.module, force)
-        if force: self.rm()
-        return res
+        self.arch_path().mkdir(exist_ok=True, parents=True)
+        return download_and_check(url, urldest(url, self.arch_path()), self.module, force)
 
-    def rm(self, url, rm_arch=True, rm_data=True):
+    def rm(self, url, rm_arch=True, rm_data=True, extract_key='data'):
         "Delete downloaded archive and extracted data for `url`"
-        arch = urldest(url, self.arch_path)
-        data = self.data_path/remove_suffix(arch.stem, '.tar')
-        if rm_data: data.delete()
+        arch = urldest(url, self.arch_path())
         if rm_arch: arch.delete()
+        if rm_data:
+            dest = self.data_path(extract_key)
+            (dest/remove_suffix(arch.stem, '.tar')).delete()
 
     def update(self, url):
         "Store the hash and size in `download_checks.py`"
-        update_checks(urldest(url, self.arch_path), url, self.module)
+        update_checks(urldest(url, self.arch_path()), url, self.module)
 
-    def extract(self, url, extract_key=None, force=False):
+    def extract(self, url, extract_key='data', force=False):
         "Extract archive already downloaded from `url`, overwriting existing if `force`"
-        arch = urldest(url, self.arch_path)
+        arch = urldest(url, self.arch_path())
         if not arch.exists(): raise Exception(f'{arch} does not exist')
-        dest = self.cfg.config_path/self.cfg[extract_key] if extract_key else self.data_path
+        dest = self.data_path(extract_key)
         dest.mkdir(exist_ok=True, parents=True)
         return untar_dir(arch, dest, rename=True, overwrite=force)
 
