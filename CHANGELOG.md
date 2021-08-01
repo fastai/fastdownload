@@ -2,6 +2,12 @@
 
 <!-- do not remove -->
 
+## 0.0.3
+
+### New Features
+
+- skip archive download if extracted data exists ([#7](https://github.com/fastai/fastdownload/issues/7))
+
 
 ## 0.0.2
 
