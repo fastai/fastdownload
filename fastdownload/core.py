@@ -80,9 +80,10 @@ class FastDownload:
         "Path to archives"
         return self.cfg.path('archive')
 
-    def data_path(self, extract_key='data'):
+    def data_path(self, extract_key='data', arch=None):
         "Path to extracted data"
-        return self.cfg.path(extract_key)
+        path = self.cfg.path(extract_key)
+        return path if arch is None else path/remove_suffix(arch.stem, '.tar')
 
     def check(self, url, fpath):
         "Check whether size and hash of `fpath` matches stored data for `url` or data is missing"
@@ -98,9 +99,7 @@ class FastDownload:
         "Delete downloaded archive and extracted data for `url`"
         arch = urldest(url, self.arch_path())
         if rm_arch: arch.delete()
-        if rm_data:
-            dest = self.data_path(extract_key)
-            (dest/remove_suffix(arch.stem, '.tar')).delete()
+        if rm_data: self.data_path(extract_key, arch).delete()
 
     def update(self, url):
         "Store the hash and size in `download_checks.py`"
@@ -116,5 +115,8 @@ class FastDownload:
 
     def get(self, url, extract_key='data', force=False):
         "Download and extract `url`, overwriting existing if `force`"
+        if not force:
+            data = self.data_path(extract_key, urldest(url, self.arch_path()))
+            if data.exists(): return data
         self.download(url, force=force)
         return self.extract(url, extract_key=extract_key, force=force)
