@@ -12,7 +12,7 @@ Using pip:
 
 ...or using conda:
 
-    conda install -c fastchan fastdownload
+    conda install -c fastai fastdownload
 
 ## What's this about?
 
@@ -78,3 +78,5 @@ data = extracted
 ```
 
 If there is no ini file present, one will be automatically created for for you using the details you pass to `FastDownload`.
+
+You can add any additional key/value pairs to the config file that you want. When you call `FastDownload.get` pass `extract_key` to use a key other than `data` for choosing a location to extract to.

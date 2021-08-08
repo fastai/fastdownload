@@ -51,7 +51,7 @@ nb_path: "index.ipynb"
 </code></pre>
 <p>...or using conda:</p>
 
-<pre><code>conda install -c fastchan fastdownload</code></pre>
+<pre><code>conda install -c fastai fastdownload</code></pre>
 
 </div>
 </div>
@@ -130,6 +130,7 @@ nb_path: "index.ipynb"
 archive = downloaded
 data = extracted</code></pre>
 <p>If there is no ini file present, one will be automatically created for for you using the details you pass to <a href="/core.html#FastDownload"><code>FastDownload</code></a>.</p>
+<p>You can add any additional key/value pairs to the config file that you want. When you call <a href="/core.html#FastDownload.get"><code>FastDownload.get</code></a> pass <code>extract_key</code> to use a key other than <code>data</code> for choosing a location to extract to.</p>
 
 </div>
 </div>
