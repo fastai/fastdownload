@@ -2,6 +2,13 @@
 
 <!-- do not remove -->
 
+## 0.0.4
+
+### New Features
+
+- add `timeout` and `show_progress` params ([#9](https://github.com/fastai/fastdownload/issues/9))
+
+
 ## 0.0.3
 
 ### New Features
