@@ -14,13 +14,13 @@ import hashlib,shutil
 from pprint import pformat
 
 # Cell
-def download_url(url, dest=None):
+def download_url(url, dest=None, timeout=None, show_progress=True):
     "Download `url` to `dest` and show progress"
     pbar = progress_bar([])
     def progress(count=1, bsize=1, tsize=None):
         pbar.total = tsize
         pbar.update(count*bsize)
-    return urlsave(url, dest, reporthook=progress)
+    return urlsave(url, dest, reporthook=progress if show_progress else None, timeout=timeout)
 
 # Cell
 def path_stats(fpath):
