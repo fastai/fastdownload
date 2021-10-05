@@ -39,7 +39,7 @@ def checks_module(module):
 # Cell
 def read_checks(fmod):
     "Evaluated contents of `download_checks.py`"
-    if not fmod.exists(): return {}
+    if fmod == {} or not fmod.exists(): return {}
     txt = fmod.read_text()
     return eval(txt) if txt else {}
 
