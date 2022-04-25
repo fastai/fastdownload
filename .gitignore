@@ -1,7 +1,6 @@
 fastdownload/download_checks.py
 
 token
-docs/
 conda/
 .last_checked
 .gitconfig
