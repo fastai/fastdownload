@@ -9,6 +9,7 @@ index = {"download_url": "00_core.ipynb",
          "check": "00_core.ipynb",
          "update_checks": "00_core.ipynb",
          "download_and_check": "00_core.ipynb",
+         "untar_dir": "00_core.ipynb",
          "FastDownload": "00_core.ipynb"}
 
 modules = ["core.py"]
