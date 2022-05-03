@@ -10,7 +10,7 @@ from fastcore.basics import *
 from fastcore.foundation import *
 from fastcore.net import *
 from fastcore.xtras import untar_dir
-import hashlib,shutil
+import hashlib,shutil,tempfile
 from pprint import pformat
 
 # Cell
