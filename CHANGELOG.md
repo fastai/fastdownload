@@ -2,6 +2,14 @@
 
 <!-- do not remove -->
 
+
+## 0.0.6
+
+### Bugs Squashed
+
+- Fix attribute error in read_checks function ([#17](https://github.com/fastai/fastdownload/pull/17)), thanks to [@GenevieveBuckley](https://github.com/GenevieveBuckley)
+
+
 ## 0.0.4
 
 ### New Features
