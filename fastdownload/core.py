@@ -5,11 +5,7 @@ __all__ = ['download_url', 'path_stats', 'checks_module', 'read_checks', 'check'
 
 # Cell
 from fastprogress.fastprogress import progress_bar
-from fastcore.imports import *
-from fastcore.basics import *
-from fastcore.foundation import *
-from fastcore.net import *
-from fastcore.xtras import untar_dir
+from fastcore.all import *
 import hashlib,shutil
 from pprint import pformat
 
