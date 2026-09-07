@@ -15,7 +15,7 @@ classifiers = ["Natural Language :: English", "Intended Audience :: Developers",
 dependencies = ['fastprogress', 'fastcore>=1.3.26']
 
 [project.urls]
-Repository = "https://github.com/fastai/fastdownload/tree/master/"
+Repository = "https://github.com/fastai/fastdownload"
 Documentation = "https://fastdownload.fast.ai/"
 
 [project.entry-points.nbdev]

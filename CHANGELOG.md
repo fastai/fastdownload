@@ -2,6 +2,13 @@
 
 <!-- do not remove -->
 
+## 0.0.8
+
+### Bugs Squashed
+
+- Lock downloads and rename on completion, so parallel callers never read a partial archive ([#33](https://github.com/fastai/fastdownload/pull/33)), thanks to [@jph00](https://github.com/jph00)
+
+
 
 ## 0.0.6
 
@@ -36,4 +43,3 @@
 ### New Features
 
 - Initial release
-
