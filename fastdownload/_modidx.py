@@ -3,7 +3,7 @@
 d = { 'settings': { 'branch': 'master',
                 'doc_baseurl': '/',
                 'doc_host': 'https://fastdownload.fast.ai',
-                'git_url': 'https://github.com/fastai/fastdownload/tree/master',
+                'git_url': 'https://github.com/fastai/fastdownload',
                 'lib_path': 'fastdownload'},
   'syms': { 'fastdownload.core': { 'fastdownload.core.FastDownload': ('core.html#fastdownload', 'fastdownload/core.py'),
                                    'fastdownload.core.FastDownload.__init__': ('core.html#fastdownload.__init__', 'fastdownload/core.py'),
