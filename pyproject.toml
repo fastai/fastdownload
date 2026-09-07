@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastdownload"
+dynamic = ["version"]
+description = "A general purpose data downloading library."
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "Apache-2.0"}
+authors = [{name = "Jeremy Howard", email = "info@fast.ai"}]
+keywords = ['fastdownload,dataset,fastai,download']
+classifiers = ["Natural Language :: English", "Intended Audience :: Developers", "Development Status :: 2 - Pre-Alpha", "Programming Language :: Python :: 3", "Programming Language :: Python :: 3 :: Only"]
+dependencies = ['fastprogress', 'fastcore>=1.3.26']
+
+[project.urls]
+Repository = "https://github.com/fastai/fastdownload/tree/master/"
+Documentation = "https://fastdownload.fast.ai/"
+
+[project.entry-points.nbdev]
+fastdownload = "fastdownload._modidx:d"
+
+[tool.setuptools.dynamic]
+version = {attr = "fastdownload.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["fastdownload"]
+
+[tool.nbdev]
+nbs_path = '.'
+branch = 'master'
+recursive = false
+title = 'fastdownload'
