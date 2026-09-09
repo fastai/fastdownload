@@ -7,10 +7,8 @@ __all__ = ['download_url', 'path_stats', 'checks_module', 'read_checks', 'check'
 # %% ../00_core.ipynb #9e4b351a
 from fastprogress.fastprogress import progress_bar
 from fastcore.all import *
-import hashlib
+import hashlib, fcntl
 from contextlib import contextmanager
-try: import fcntl
-except ImportError: fcntl = None
 from pprint import pformat
 
 # %% ../00_core.ipynb #171df7b7
@@ -71,13 +69,11 @@ def download_and_check(url, fpath, fmod, force):
 # %% ../00_core.ipynb #cebf371d
 @contextmanager
 def _locked(path):
-    "Hold an exclusive lock on `path` for the block, where the platform supports it"
+    "Hold an exclusive lock on `path` for the block; closing the file releases it"
     path.parent.mkdir(exist_ok=True, parents=True)
     with open(path, 'w') as f:
-        if fcntl: fcntl.flock(f, fcntl.LOCK_EX)
-        try: yield
-        finally:
-            if fcntl: fcntl.flock(f, fcntl.LOCK_UN)
+        fcntl.flock(f, fcntl.LOCK_EX)
+        yield
 
 # %% ../00_core.ipynb #332fce58
 class FastDownload:
