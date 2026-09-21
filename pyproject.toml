@@ -29,6 +29,6 @@ include = ["fastdownload"]
 
 [tool.nbdev]
 nbs_path = '.'
-branch = 'master'
+branch = 'main'
 recursive = false
 title = 'fastdownload'

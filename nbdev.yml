@@ -1,0 +1,14 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "fastdownload"
+  site-url: "https://fastdownload.fast.ai/"
+  description: "A general purpose data downloading library."
+  repo-branch: main
+  repo-url: "https://github.com/fastai/fastdownload"
+
+format-links:
+  - html
+  - format: commonmark
+    text: Markdown
