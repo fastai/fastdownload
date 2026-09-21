@@ -22,5 +22,4 @@ d = { 'settings': { 'branch': 'main',
                                    'fastdownload.core.download_url': ('core.html#download_url', 'fastdownload/core.py'),
                                    'fastdownload.core.path_stats': ('core.html#path_stats', 'fastdownload/core.py'),
                                    'fastdownload.core.read_checks': ('core.html#read_checks', 'fastdownload/core.py'),
-                                   'fastdownload.core.update_checks': ('core.html#update_checks', 'fastdownload/core.py')},
-            'fastdownload.urls': {}}}
+                                   'fastdownload.core.update_checks': ('core.html#update_checks', 'fastdownload/core.py')}}}
