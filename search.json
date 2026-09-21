@@ -1,0 +1,166 @@
+[
+  {
+    "objectID": "CONTRIBUTING.html",
+    "href": "CONTRIBUTING.html",
+    "title": "How to contribute",
+    "section": "",
+    "text": "Before anything else, please install the git hooks that run automatic scripts during each commit and merge to strip the notebooks of superfluous metadata (and avoid merge conflicts). After cloning the repository, run the following command inside it:\nnbdev_install_git_hooks\n\n\n\n\nEnsure the bug was not already reported by searching on GitHub under Issues.\nIf you’re unable to find an open issue addressing the problem, open a new one. Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.\nBe sure to add the complete error messages.\n\n\n\n\nOpen a new GitHub pull request with the patch.\nEnsure that your PR includes a test that fails without your patch, and pass with it.\nEnsure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.\n\n\n\n\n\n\nKeep each PR focused. While it’s more convenient, do not combine several unrelated fixes together. Create as many branches as needing to keep each PR focused.\nDo not mix style changes/fixes with “functional” changes. It’s very difficult to review such PRs and it most likely get rejected.\nDo not add/remove vertical whitespace. Preserve the original style of the file you edit as much as you can.\nDo not turn an already submitted PR into your development playground. If after you submitted PR, you discovered that more work is needed - close the PR, do the required work and then submit a new PR. Otherwise each of your commits requires attention from maintainers of the project.\nIf, however, you submitted a PR and received a request for changes, you should proceed with commits inside that PR, so that the maintainer can see the incremental fixes and won’t need to review the whole PR again. In the exception case where you realize it’ll take many many commits to complete the requests, then it’s probably best to close the PR, do the work and then submit it again. Use common sense where you’d choose one way over another.\n\n\n\n\n\nDocs are automatically created from the notebooks in the nbs folder."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#how-to-get-started",
+    "href": "CONTRIBUTING.html#how-to-get-started",
+    "title": "How to contribute",
+    "section": "",
+    "text": "Before anything else, please install the git hooks that run automatic scripts during each commit and merge to strip the notebooks of superfluous metadata (and avoid merge conflicts). After cloning the repository, run the following command inside it:\nnbdev_install_git_hooks"
+  },
+  {
+    "objectID": "CONTRIBUTING.html#did-you-find-a-bug",
+    "href": "CONTRIBUTING.html#did-you-find-a-bug",
+    "title": "How to contribute",
+    "section": "",
+    "text": "Ensure the bug was not already reported by searching on GitHub under Issues.\nIf you’re unable to find an open issue addressing the problem, open a new one. Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.\nBe sure to add the complete error messages.\n\n\n\n\nOpen a new GitHub pull request with the patch.\nEnsure that your PR includes a test that fails without your patch, and pass with it.\nEnsure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#pr-submission-guidelines",
+    "href": "CONTRIBUTING.html#pr-submission-guidelines",
+    "title": "How to contribute",
+    "section": "",
+    "text": "Keep each PR focused. While it’s more convenient, do not combine several unrelated fixes together. Create as many branches as needing to keep each PR focused.\nDo not mix style changes/fixes with “functional” changes. It’s very difficult to review such PRs and it most likely get rejected.\nDo not add/remove vertical whitespace. Preserve the original style of the file you edit as much as you can.\nDo not turn an already submitted PR into your development playground. If after you submitted PR, you discovered that more work is needed - close the PR, do the required work and then submit a new PR. Otherwise each of your commits requires attention from maintainers of the project.\nIf, however, you submitted a PR and received a request for changes, you should proceed with commits inside that PR, so that the maintainer can see the incremental fixes and won’t need to review the whole PR again. In the exception case where you realize it’ll take many many commits to complete the requests, then it’s probably best to close the PR, do the work and then submit it again. Use common sense where you’d choose one way over another."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#do-you-want-to-contribute-to-the-documentation",
+    "href": "CONTRIBUTING.html#do-you-want-to-contribute-to-the-documentation",
+    "title": "How to contribute",
+    "section": "",
+    "text": "Docs are automatically created from the notebooks in the nbs folder."
+  },
+  {
+    "objectID": "CHANGELOG.html",
+    "href": "CHANGELOG.html",
+    "title": "Release notes",
+    "section": "",
+    "text": "Lock downloads and rename on completion, so parallel callers never read a partial archive (#33), thanks to @jph00\n\n\n\n\n\n\n\n\nFix attribute error in read_checks function (#17), thanks to @GenevieveBuckley\n\n\n\n\n\n\n\n\nadd timeout and show_progress params (#9)\n\n\n\n\n\n\n\n\nskip archive download if extracted data exists (#7)\n\n\n\n\n\n\n\n\nadd extract_key param (#5)\n\n\n\n\n\n\n\n\nInitial release"
+  },
+  {
+    "objectID": "CHANGELOG.html#section",
+    "href": "CHANGELOG.html#section",
+    "title": "Release notes",
+    "section": "",
+    "text": "Lock downloads and rename on completion, so parallel callers never read a partial archive (#33), thanks to @jph00"
+  },
+  {
+    "objectID": "CHANGELOG.html#section-1",
+    "href": "CHANGELOG.html#section-1",
+    "title": "Release notes",
+    "section": "",
+    "text": "Fix attribute error in read_checks function (#17), thanks to @GenevieveBuckley"
+  },
+  {
+    "objectID": "CHANGELOG.html#section-2",
+    "href": "CHANGELOG.html#section-2",
+    "title": "Release notes",
+    "section": "",
+    "text": "add timeout and show_progress params (#9)"
+  },
+  {
+    "objectID": "CHANGELOG.html#section-3",
+    "href": "CHANGELOG.html#section-3",
+    "title": "Release notes",
+    "section": "",
+    "text": "skip archive download if extracted data exists (#7)"
+  },
+  {
+    "objectID": "CHANGELOG.html#section-4",
+    "href": "CHANGELOG.html#section-4",
+    "title": "Release notes",
+    "section": "",
+    "text": "add extract_key param (#5)"
+  },
+  {
+    "objectID": "CHANGELOG.html#section-5",
+    "href": "CHANGELOG.html#section-5",
+    "title": "Release notes",
+    "section": "",
+    "text": "Initial release"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "fastdownload",
+    "section": "",
+    "text": "If you have datasets or other archives that you want to make available to your users, and ensure they always have the latest versions and that they are downloaded correctly, fastdownload can help.",
+    "crumbs": [
+      "fastdownload"
+    ]
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "fastdownload",
+    "section": "Install",
+    "text": "Install\nUsing pip:\npip install fastdownload\n…or using conda:\nconda install -c fastai fastdownload",
+    "crumbs": [
+      "fastdownload"
+    ]
+  },
+  {
+    "objectID": "index.html#whats-this-about",
+    "href": "index.html#whats-this-about",
+    "title": "fastdownload",
+    "section": "What’s this about?",
+    "text": "What’s this about?\nThe situation where you might want to use fastdownload is where you have one or more URLs pointing at some archives you want to make available, and you want to ensure that your users download those archives correctly, have the latest version, and that it’s as easy as possible for them to access the information in those archives.\nYour user just calls a single method, FastDownload.get, passing the URL required, and the URL will be downloaded and extracted to the directories you choose. The path to the extracted file is returned. If that URL has already been downloaded, then the cached archive or contents will be used automatically. However, if that size or hash of the archive is different to what it should be, then the user will be informed, and a new version will be downloaded.\nIn the future, you may want to update one or more of your archives. When you do so, fastdownload will ensure your users have the latest version, by checking their downloaded archives against your updated file size and hash information.\nFor instance, fastai uses fastdownload to provide access to datasets for deep learning. fastai users can download and extract them with a single command, using the return value to access the files. The files are automatically placed in appropriate subdirectories of a .fastai folder in the user’s homedir. If a dataset is updated, users are informed the next time they use the dataset, and the latest version is automatically downloaded and extracted for them.",
+    "crumbs": [
+      "fastdownload"
+    ]
+  },
+  {
+    "objectID": "index.html#usage-downloading-files",
+    "href": "index.html#usage-downloading-files",
+    "title": "fastdownload",
+    "section": "Usage: downloading files",
+    "text": "Usage: downloading files\nWhen your users download an archive, fastdownload will automatically save it to a directory, check if the size and hash matches, and extract the contents. Minimal usage for downloading and extracting is:\nfrom fastdownload import FastDownload\nd = FastDownload()\npath = d.get('https://...')\nAfter this, path will contain the path where the extracted files are located. By default, archives are saved to {base}/archive, and extracted to {base}/data. {base} defaults to ~/.fastdownload. If there is more than one file or folder in the root of the downloaded archive, then a new folder is created in data for the contents.\nInstead of get, use download to download the URL without extracting it, or extract to extract the URL without downloading it (assuming it’s already been downloaded to the archive directory). All of these methods accept a force parameter which will download/extract the archive even if it’s already present.\nYou can change any or all of the base, archive, and data paths by passing them to FastDownload:\nd = FastDownload(base='~/.mypath', archive='downloaded', data='extracted')\nYou can remove the cached archive file and/or the extracted contents with rm:\nd.rm('https://...')",
+    "crumbs": [
+      "fastdownload"
+    ]
+  },
+  {
+    "objectID": "index.html#usage-making-archives-available-to-download",
+    "href": "index.html#usage-making-archives-available-to-download",
+    "title": "fastdownload",
+    "section": "Usage: making archives available to download",
+    "text": "Usage: making archives available to download\nfastdownload will add a file download_checks.py to your Python module which contains file sizes and hashes for your archives. The file is located in the same directory as a module you choose, e.g.:\nd = FastDownload(module=fastai.some_module)\nThen use update to create or update the size and hash for a URL:\nd.update('https://...')\nYou will now find there is a file called download_checks.py in the same directory where fastai.some_module is located, which contains a Python dict with the URL, size, and hash for this file. If you’ve downloaded this file before to your archive path then it will be used, instead of downloading a new copy. Use get(force=True) first to download a new copy if even you have it in your archive.",
+    "crumbs": [
+      "fastdownload"
+    ]
+  },
+  {
+    "objectID": "index.html#config-file",
+    "href": "index.html#config-file",
+    "title": "fastdownload",
+    "section": "Config file",
+    "text": "Config file\nIf there is a file called config.ini in your base directory, then keys archive and data will be used as the default values for FastDownload. The file should be in configparser format. Here’s a sample config.ini:\n[DEFAULT]         \narchive = downloaded\ndata = extracted\nIf there is no ini file present, one will be automatically created for for you using the details you pass to FastDownload.\nYou can add any additional key/value pairs to the config file that you want. When you call FastDownload.get pass extract_key to use a key other than data for choosing a location to extract to.",
+    "crumbs": [
+      "fastdownload"
+    ]
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "Core API",
+    "section": "",
+    "text": "Most users should use FastDownload rather than calling these helpers.\n\ndest = Path('tmp')\nurl = 'https://s3.amazonaws.com/fast-ai-sample/mnist_tiny.tgz'\n\n\n\nsource\n\n\ndef download_url(\n    url, dest:NoneType=None, timeout:NoneType=None, show_progress:bool=True\n):\nDownload url to dest and show progress\n\n\ndownload_url shows a progress bar by default. It downloads to a .part file and renames it to the destination after the download completes:\n\ndest.mkdir(exist_ok=True)\nfpath = download_url(url, dest)\nfpath\n\n\n    \n        \n      \n      100.54% [344064/342207 00:00&lt;00:00]\n    \n    \n\n\nPath('tmp/mnist_tiny.tgz')\n\n\n\n\nsource\n\n\ndef path_stats(\n    fpath\n):\nSize of fpath and md5 of its first megabyte\n\n\npath_stats returns the file size and an MD5 hash of the first megabyte:\n\npath_stats(fpath)\n\n(342207, '56143e8f24db90d925d82a5a74141875')\n\n\n\n\nsource\n\n\ndef checks_module(\n    module\n):\nLocation of download_checks.py\n\n\nThe download_checks.py file containing sizes and hashes will be located next to module:\n\nmod = checks_module(fastdownload)\nmod\n\nPath('git/fastdownload/fastdownload/download_checks.py')\n\n\n\n\nsource\n\n\ndef read_checks(\n    fmod\n):\nEvaluated contents of download_checks.py\n\n\nread_checks evaluates the file’s dict literal, and gives an empty dict when there is no file:\n\nassert read_checks({}) == {}\n\n\n\nsource\n\n\ndef check(\n    fmod, url, fpath\n):\nCheck whether size and hash of fpath matches stored data for url or data is missing\n\n\ncheck accepts files with no recorded checks for their URL:\n\n\nsource\n\n\ndef update_checks(\n    fpath, url, fmod\n):\nStore the hash and size of fpath for url in download_checks.py\n\n\nupdate_checks records the current size and hash for url, rewriting the whole file:\n\nif mod.exists(): mod.unlink()\nupdate_checks(fpath, url, mod)\nread_checks(mod)\n\n{'https://s3.amazonaws.com/fast-ai-sample/mnist_tiny.tgz': (342207,\n  '56143e8f24db90d925d82a5a74141875')}\n\n\n\n\nsource\n\n\ndef download_and_check(\n    url, fpath, fmod, force\n):\nDownload url to fpath, unless exists and check fails and not force\n\n\nParallel notebook tests can request the same dataset in multiple processes. get holds a lock file beside the archive during download and extraction. Other calls to get wait for the lock, then reuse the extracted data.\n\n\nsource\n\n\ndef FastDownload(\n    cfg:NoneType=None, base:str='~/.fastdownload', archive:NoneType=None, data:NoneType=None, module:NoneType=None\n):\n\n\n\nd = FastDownload(module=fastdownload)\nd.module\n\nPath('git/fastdownload/fastdownload/download_checks.py')\n\n\nThe config.ini file will be created (if it doesn’t exist) in {base}/config.ini:\n\nd.cfg.config_file\n\nPath('.fastdownload/config.ini')\n\n\n\nprint(d.cfg.config_file.read_text())\n\n[DEFAULT]\ndata = /home/jhoward/.fastdownload/data\narchive = /home/jhoward/.fastdownload/archive\n\n\n\n\n\n\nsource\n\n\ndef download(\n    url, force:bool=False\n):\nDownload url to archive path, unless exists and self.check fails and not force\n\n\nIf there is no stored hash and size for url, or the size and hash matches the stored checks, then download will only download the URL if the destination file does not exist. The destination path will be retured.\n\nif d.module.exists(): d.module.unlink()\narch = d.download(url)\narch\n\n\n    \n        \n      \n      100.54% [344064/342207 00:00&lt;00:00]\n    \n    \n\n\nPath('.fastdownload/archive/mnist_tiny.tgz')\n\n\n\n\nsource\n\n\ndef update(\n    url\n):\nStore the hash and size in download_checks.py\n\n\n\nd.update(url)\neval(d.module.read_text())\n\n{'https://s3.amazonaws.com/fast-ai-sample/mnist_tiny.tgz': (342207,\n  '56143e8f24db90d925d82a5a74141875')}\n\n\nCalling download will now just return the existing file, since the checks match:\n\nd.download(url)\n\nPath('.fastdownload/archive/mnist_tiny.tgz')\n\n\nIf the checks file doesn’t match the size or hash of the archive, then a new copy of the file will be downloaded.\n\n\nsource\n\n\ndef extract(\n    url, extract_key:str='data', force:bool=False\n):\nExtract archive already downloaded from url, overwriting existing if force\n\n\n\nextr = d.extract(url, force=True)\nextr\n\nPath('.fastdownload/data/mnist_tiny')\n\n\n\nextr.ls()\n\n(#5) [Path('.fastdownload/data/mnist_tiny/models'),Path('.fastdownload/data/mnist_tiny/train'),Path('.fastdownload/data/mnist_tiny/labels.csv'),Path('.fastdownload/data/mnist_tiny/valid'),Path('.fastdownload/data/mnist_tiny/test')]\n\n\nPass extract_key to use a key other than data from your config file when selecting an archive extraction location:\n\nd.cfg['model_path'] = 'models'\nd.extract(url, extract_key='model_path')\n\nPath('.fastdownload/models/mnist_tiny')\n\n\n\n\nsource\n\n\ndef rm(\n    url, rm_arch:bool=True, rm_data:bool=True, extract_key:str='data'\n):\nDelete downloaded archive and extracted data for url\n\n\n\nd.rm(url)\nextr.exists(),arch.exists()\n\n(False, False)\n\n\nget combines the two steps, and is what callers normally use:\n\n\nsource\n\n\ndef get(\n    url, extract_key:str='data', force:bool=False\n):\nDownload and extract url, overwriting existing if force\n\n\n\nres = d.get(url)\nres,extr.exists()\n\n\n    \n        \n      \n      100.54% [344064/342207 00:00&lt;00:00]\n    \n    \n\n\n(Path('.fastdownload/data/mnist_tiny'), True)\n\n\nIf the archive doesn’t exist, but the extracted data does, then the archive is not downloaded again.\n\nd.rm(url, rm_data=False)\nres = d.get(url)\nres,extr.exists()\n\n(Path('.fastdownload/data/mnist_tiny'), True)\n\n\nextract_key works the same way as in FastDownload.extract:\n\nres = d.get(url, extract_key='model_path')\nres,res.exists()\n\n(Path('.fastdownload/models/mnist_tiny'), True)",
+    "crumbs": [
+      "Core API"
+    ]
+  },
+  {
+    "objectID": "core.html#helpers",
+    "href": "core.html#helpers",
+    "title": "Core API",
+    "section": "",
+    "text": "Most users should use FastDownload rather than calling these helpers.\n\ndest = Path('tmp')\nurl = 'https://s3.amazonaws.com/fast-ai-sample/mnist_tiny.tgz'\n\n\n\nsource\n\n\ndef download_url(\n    url, dest:NoneType=None, timeout:NoneType=None, show_progress:bool=True\n):\nDownload url to dest and show progress\n\n\ndownload_url shows a progress bar by default. It downloads to a .part file and renames it to the destination after the download completes:\n\ndest.mkdir(exist_ok=True)\nfpath = download_url(url, dest)\nfpath\n\n\n    \n        \n      \n      100.54% [344064/342207 00:00&lt;00:00]\n    \n    \n\n\nPath('tmp/mnist_tiny.tgz')\n\n\n\n\nsource\n\n\ndef path_stats(\n    fpath\n):\nSize of fpath and md5 of its first megabyte\n\n\npath_stats returns the file size and an MD5 hash of the first megabyte:\n\npath_stats(fpath)\n\n(342207, '56143e8f24db90d925d82a5a74141875')\n\n\n\n\nsource\n\n\ndef checks_module(\n    module\n):\nLocation of download_checks.py\n\n\nThe download_checks.py file containing sizes and hashes will be located next to module:\n\nmod = checks_module(fastdownload)\nmod\n\nPath('git/fastdownload/fastdownload/download_checks.py')\n\n\n\n\nsource\n\n\ndef read_checks(\n    fmod\n):\nEvaluated contents of download_checks.py\n\n\nread_checks evaluates the file’s dict literal, and gives an empty dict when there is no file:\n\nassert read_checks({}) == {}\n\n\n\nsource\n\n\ndef check(\n    fmod, url, fpath\n):\nCheck whether size and hash of fpath matches stored data for url or data is missing\n\n\ncheck accepts files with no recorded checks for their URL:\n\n\nsource\n\n\ndef update_checks(\n    fpath, url, fmod\n):\nStore the hash and size of fpath for url in download_checks.py\n\n\nupdate_checks records the current size and hash for url, rewriting the whole file:\n\nif mod.exists(): mod.unlink()\nupdate_checks(fpath, url, mod)\nread_checks(mod)\n\n{'https://s3.amazonaws.com/fast-ai-sample/mnist_tiny.tgz': (342207,\n  '56143e8f24db90d925d82a5a74141875')}\n\n\n\n\nsource\n\n\ndef download_and_check(\n    url, fpath, fmod, force\n):\nDownload url to fpath, unless exists and check fails and not force\n\n\nParallel notebook tests can request the same dataset in multiple processes. get holds a lock file beside the archive during download and extraction. Other calls to get wait for the lock, then reuse the extracted data.\n\n\nsource\n\n\ndef FastDownload(\n    cfg:NoneType=None, base:str='~/.fastdownload', archive:NoneType=None, data:NoneType=None, module:NoneType=None\n):\n\n\n\nd = FastDownload(module=fastdownload)\nd.module\n\nPath('git/fastdownload/fastdownload/download_checks.py')\n\n\nThe config.ini file will be created (if it doesn’t exist) in {base}/config.ini:\n\nd.cfg.config_file\n\nPath('.fastdownload/config.ini')\n\n\n\nprint(d.cfg.config_file.read_text())\n\n[DEFAULT]\ndata = /home/jhoward/.fastdownload/data\narchive = /home/jhoward/.fastdownload/archive\n\n\n\n\n\n\nsource\n\n\ndef download(\n    url, force:bool=False\n):\nDownload url to archive path, unless exists and self.check fails and not force\n\n\nIf there is no stored hash and size for url, or the size and hash matches the stored checks, then download will only download the URL if the destination file does not exist. The destination path will be retured.\n\nif d.module.exists(): d.module.unlink()\narch = d.download(url)\narch\n\n\n    \n        \n      \n      100.54% [344064/342207 00:00&lt;00:00]\n    \n    \n\n\nPath('.fastdownload/archive/mnist_tiny.tgz')\n\n\n\n\nsource\n\n\ndef update(\n    url\n):\nStore the hash and size in download_checks.py\n\n\n\nd.update(url)\neval(d.module.read_text())\n\n{'https://s3.amazonaws.com/fast-ai-sample/mnist_tiny.tgz': (342207,\n  '56143e8f24db90d925d82a5a74141875')}\n\n\nCalling download will now just return the existing file, since the checks match:\n\nd.download(url)\n\nPath('.fastdownload/archive/mnist_tiny.tgz')\n\n\nIf the checks file doesn’t match the size or hash of the archive, then a new copy of the file will be downloaded.\n\n\nsource\n\n\ndef extract(\n    url, extract_key:str='data', force:bool=False\n):\nExtract archive already downloaded from url, overwriting existing if force\n\n\n\nextr = d.extract(url, force=True)\nextr\n\nPath('.fastdownload/data/mnist_tiny')\n\n\n\nextr.ls()\n\n(#5) [Path('.fastdownload/data/mnist_tiny/models'),Path('.fastdownload/data/mnist_tiny/train'),Path('.fastdownload/data/mnist_tiny/labels.csv'),Path('.fastdownload/data/mnist_tiny/valid'),Path('.fastdownload/data/mnist_tiny/test')]\n\n\nPass extract_key to use a key other than data from your config file when selecting an archive extraction location:\n\nd.cfg['model_path'] = 'models'\nd.extract(url, extract_key='model_path')\n\nPath('.fastdownload/models/mnist_tiny')\n\n\n\n\nsource\n\n\ndef rm(\n    url, rm_arch:bool=True, rm_data:bool=True, extract_key:str='data'\n):\nDelete downloaded archive and extracted data for url\n\n\n\nd.rm(url)\nextr.exists(),arch.exists()\n\n(False, False)\n\n\nget combines the two steps, and is what callers normally use:\n\n\nsource\n\n\ndef get(\n    url, extract_key:str='data', force:bool=False\n):\nDownload and extract url, overwriting existing if force\n\n\n\nres = d.get(url)\nres,extr.exists()\n\n\n    \n        \n      \n      100.54% [344064/342207 00:00&lt;00:00]\n    \n    \n\n\n(Path('.fastdownload/data/mnist_tiny'), True)\n\n\nIf the archive doesn’t exist, but the extracted data does, then the archive is not downloaded again.\n\nd.rm(url, rm_data=False)\nres = d.get(url)\nres,extr.exists()\n\n(Path('.fastdownload/data/mnist_tiny'), True)\n\n\nextract_key works the same way as in FastDownload.extract:\n\nres = d.get(url, extract_key='model_path')\nres,res.exists()\n\n(Path('.fastdownload/models/mnist_tiny'), True)",
+    "crumbs": [
+      "Core API"
+    ]
+  }
+]
